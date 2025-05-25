@@ -279,6 +279,16 @@ body {
 .nav-overlay {
   display: none;
 }
+.nav-close {
+  display: none;
+  font-size: 2.5em;
+  color: var(--primary-color);
+  cursor: pointer;
+  margin-left: auto;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  user-select: none;
+}
 @media (max-width: 768px) {
   .navigation ul {
     display: none;
@@ -297,10 +307,17 @@ body {
     gap: 30px;
     padding: 80px 30px 30px 30px;
     transition: left 0.4s cubic-bezier(.77,0,.18,1);
-    z-index: 1100;
+    z-index: 1101;
   }
   .nav-toggle:checked ~ .nav-menu {
     left: 0;
+  }
+  .nav-close {
+    display: block;
+    align-self: flex-end;
+  }
+  .nav-overlay {
+    display: none;
   }
   .nav-toggle:checked ~ .nav-overlay {
     display: block;
@@ -308,7 +325,7 @@ body {
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     background: rgba(44,62,80,0.25);
-    z-index: 1099;
+    z-index: 1100;
   }
   .nav-toggle:checked ~ .nav-burger span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
