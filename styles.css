@@ -194,21 +194,64 @@ body {
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .navigation ul {
-        display: none;
+/* Улучшенная адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 5px;
     }
-    
+    .hero {
+        margin-top: 60px;
+        height: auto;
+        min-height: 70vh;
+    }
+    .hero-content {
+        padding: 15px 5px;
+    }
     .hero h1 {
-        font-size: 2.5em;
+        font-size: 2em;
+        margin-bottom: 18px;
     }
-    
+    .hero p {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+    .btn {
+        padding: 12px 18px;
+        font-size: 1em;
+    }
+    .section {
+        padding: 40px 0;
+    }
+    .section-title h2 {
+        font-size: 1.5em;
+    }
+    .services-grid {
+        gap: 15px;
+    }
+    .service-card, .price-card, .contact-info {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 60vh;
+    }
+    .hero-content {
+        padding: 20px 10px;
+    }
+    .hero h1 {
+        font-size: 2.2em;
+    }
     .section {
         padding: 60px 0;
     }
-    
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .service-card, .price-card, .contact-info {
+        padding: 20px;
     }
 } 
