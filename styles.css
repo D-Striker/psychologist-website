@@ -231,6 +231,13 @@ body {
     .service-card, .price-card, .contact-info {
         padding: 15px;
     }
+    .nav-menu {
+        width: 80vw;
+    }
+    .nav-toggle:checked ~ .nav-overlay {
+        left: 80vw;
+        width: 20vw;
+    }
 }
 
 @media (max-width: 768px) {
@@ -244,8 +251,48 @@ body {
     .hero h1 {
         font-size: 2.2em;
     }
-    .section {
-        padding: 60px 0;
+    .section:first-of-type {
+        padding-top: 120px;
+    }
+    .navigation .container {
+        flex-direction: row;
+        align-items: center;
+    }
+    .navigation {
+        z-index: 2000;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 0; left: -80vw;
+        width: 80vw; height: 100vh;
+        background: var(--white);
+        box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 80px 30px 30px 30px;
+        transition: left 0.4s cubic-bezier(.77,0,.18,1);
+        z-index: 1101;
+    }
+    .nav-toggle:checked ~ .nav-menu {
+        left: 0;
+        display: flex;
+    }
+    .nav-close {
+        display: block;
+        align-self: flex-end;
+    }
+    .nav-overlay {
+        display: none;
+    }
+    .nav-toggle:checked ~ .nav-overlay {
+        display: block;
+        position: fixed;
+        top: 0; left: 80vw;
+        width: 20vw; height: 100vh;
+        background: rgba(44,62,80,0.25);
+        z-index: 1100;
+        pointer-events: auto;
     }
     .services-grid {
         grid-template-columns: 1fr;
@@ -291,7 +338,7 @@ body {
 }
 @media (max-width: 768px) {
   .navigation ul {
-    display: none;
+    display: flex;
   }
   .nav-burger {
     display: flex;
@@ -311,6 +358,7 @@ body {
   }
   .nav-toggle:checked ~ .nav-menu {
     left: 0;
+    display: flex;
   }
   .nav-close {
     display: block;
@@ -322,10 +370,11 @@ body {
   .nav-toggle:checked ~ .nav-overlay {
     display: block;
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0; left: 80vw;
+    width: 20vw; height: 100vh;
     background: rgba(44,62,80,0.25);
     z-index: 1100;
+    pointer-events: auto;
   }
   .nav-toggle:checked ~ .nav-burger span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
