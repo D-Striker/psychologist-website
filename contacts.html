@@ -6,12 +6,18 @@
     <title>Психологическая помощь - Контакты</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
     <nav class="navigation">
         <div class="container">
             <div class="logo">Психологическая помощь</div>
-            <ul>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <label for="nav-toggle" class="nav-burger">
+                <span></span><span></span><span></span>
+            </label>
+            <div class="nav-overlay"></div>
+            <ul class="nav-menu">
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="services.html">Услуги</a></li>
                 <li><a href="contacts.html">Контакты</a></li>

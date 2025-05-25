@@ -254,4 +254,69 @@ body {
     .service-card, .price-card, .contact-info {
         padding: 20px;
     }
+}
+
+/* Бургер-меню */
+.nav-toggle { display: none; }
+.nav-burger {
+  display: none;
+  width: 32px;
+  height: 32px;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1101;
+}
+.nav-burger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: var(--primary-color);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.nav-overlay {
+  display: none;
+}
+@media (max-width: 768px) {
+  .navigation ul {
+    display: none;
+  }
+  .nav-burger {
+    display: flex;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 0; left: -80vw;
+    width: 80vw; height: 100vh;
+    background: var(--white);
+    box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 80px 30px 30px 30px;
+    transition: left 0.4s cubic-bezier(.77,0,.18,1);
+    z-index: 1100;
+  }
+  .nav-toggle:checked ~ .nav-menu {
+    left: 0;
+  }
+  .nav-toggle:checked ~ .nav-overlay {
+    display: block;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(44,62,80,0.25);
+    z-index: 1099;
+  }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
 } 
